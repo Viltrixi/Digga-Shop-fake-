@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV-Merchandise</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: #0b0c10;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        cursor: default;
+    }
+
+    header {
+        font-size: 3em;
+        text-align: center;
+        margin-top: 40px;
+        color: #0ff;
+        text-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #00f;
+        animation: glowPulse 2s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+        from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+        to { text-shadow: 0 0 30px #0ff, 0 0 60px #00f; }
+    }
+
+    .neon-bg {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: repeating-linear-gradient(to right, rgba(0,255,255,0.05) 0, rgba(0,255,255,0.05) 2px, transparent 2px, transparent 100px),
+                    repeating-linear-gradient(to bottom, rgba(0,255,255,0.05) 0, rgba(0,255,255,0.05) 2px, transparent 2px, transparent 100px);
+        animation: moveGrid 10s linear infinite;
+        z-index: -1;
+    }
+
+    @keyframes moveGrid {
+        from { background-position: 0 0, 0 0; }
+        to { background-position: 200px 200px, 200px 200px; }
+    }
+
+    .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 50px;
+        max-width: 1000px;
+    }
+
+    .images img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 15px;
+        border: 3px solid #0ff;
+        box-shadow: 0 0 20px #0ff;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+
+    .images img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px #0ff, 0 0 50px #00f;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.95);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .overlay img {
+        width: 250px;
+        border: 3px solid #0ff;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px #0ff;
+    }
+
+    .overlay h2 {
+        color: #0ff;
+        margin-bottom: 10px;
+    }
+
+    .overlay p {
+        max-width: 600px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        color: #ccc;
+    }
+
+    .overlay input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 2px solid #0ff;
+        background: #111;
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1em;
+        width: 200px;
+        text-align: center;
+    }
+
+    .overlay button {
+        background: #0ff;
+        color: #000;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1em;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0 0 20px #0ff, 0 0 40px #00f;
+        transition: transform 0.2s;
+        margin-bottom: 10px;
+    }
+
+    .overlay button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #0ff, 0 0 60px #00f;
+    }
+
+    .funny-text {
+        margin-top: 20px;
+        font-size: 1.1em;
+        color: #ff0;
+    }
+
+    .discounts {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background: rgba(0,255,255,0.1);
+        padding: 10px;
+        border-radius: 10px;
+        color: #0ff;
+        font-size: 0.9em;
+        z-index: 3000;
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+        text-align: center;
+    }
+
+</style>
+</head>
+<body>
+<div class="neon-bg"></div>
+
+<div class="discounts">
+    <strong>Rabattcodes:</strong><br>
+    DIGGA10 = 10%<br>
+    DIGGA20 = 20%<br>
+    DIGGA5 = 5€ Rabatt
+</div>
+
+<header>TV-Merchandise</header>
+
+<div class="images">
+    <img src="tasse.jpg" alt="Tasse TV-Merch" data-title="Gamer-Tasse" data-description="Die ultimative Tasse für echte Zocker! Mit Controller vorne, digga.tv Schriftzug, spülmaschinenfest.">
+    <img src="hoodie.jpg" alt="Hoodie TV-Merch" data-title="Gaming-Hoodie" data-description="Stylischer Hoodie komplett schwarz mit Controller und digga.tv Schriftzug. Perfekt für lange Gaming-Sessions.">
+    <img src="iphone.jpg" alt="iPhone-Hülle TV-Merch" data-title="iPhone-Handyhülle" data-description="Schwarze Handyhülle mit digga.tv und Controller Motiv. Schützt dein iPhone stylisch.">
+    <img src="rucksack.jpg" alt="Gaming-Rucksack TV-Merch" data-title="Gaming-Rucksack" data-description="Robuster Gaming-Rucksack mit digga.tv Logo und Controller. Viel Platz für Gaming-Zubehör.">
+</div>
+
+<footer>Modern Gaming Edition ⚡ | Nur zum Spaß 😎</footer>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="">
+    <h2 id="overlay-title"></h2>
+    <p id="overlay-desc"></p>
+    <input type="text" id="discount-code" placeholder="Rabattcode eingeben">
+    <button id="buy-btn">Jetzt kaufen</button>
+    <div class="funny-text" id="funny-text"></div>
+</div>
+
+<script>
+const overlay = document.getElementById('overlay');
+const overlayImg = document.getElementById('overlay-img');
+const overlayTitle = document.getElementById('overlay-title');
+const overlayDesc = document.getElementById('overlay-desc');
+const buyBtn = document.getElementById('buy-btn');
+const funnyText = document.getElementById('funny-text');
+const discountInput = document.getElementById('discount-code');
+
+document.querySelectorAll('.images img').forEach(img => {
+    img.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+        overlayImg.src = img.src;
+        overlayTitle.textContent = img.dataset.title;
+        overlayDesc.textContent = img.dataset.description;
+        discountInput.value = '';
+        funnyText.textContent = '';
+    });
+});
+
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.style.display = 'none';
+});
+
+buyBtn.addEventListener('click', () => {
+    const code = discountInput.value.toUpperCase();
+    let msg = "😂 Ha ha ha! Hast du gedacht, du kannst das wirklich kaufen?";
+    if(code === "DIGGA10") msg = "🎉 10% Rabatt aktiviert!";
+    if(code === "DIGGA20") msg = "🎉 20% Rabatt aktiviert!";
+    if(code === "DIGGA5") msg = "🎉 5€ Rabatt aktiviert!";
+    funnyText.textContent = msg;
+});
+</script>
+</body>
+</html>
